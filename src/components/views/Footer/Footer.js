@@ -1,7 +1,7 @@
 const Footer = () =>{
     return (
-        <section>
-            <h1>Footer</h1>
+        <section id='footer' className='text-center text-muted p-2 m-2'>
+            Copyright © BlogApp 2023
         </section>
     )
 }
