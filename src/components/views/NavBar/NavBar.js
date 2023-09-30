@@ -10,9 +10,13 @@ const NavBar = () =>{
                 <Nav.Link as={NavLink} to="/">
                     <Navbar.Brand>Waiter.app</Navbar.Brand>
                 </Nav.Link>
-                <Nav className="justify-content-end" >
-                    <Nav.Link as={NavLink} to="/">Home</Nav.Link>
-                </Nav>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse className="justify-content-end" id="responsive-navbar-nav">
+                    <Nav className="justify-content-end" >
+                        <Nav.Link as={NavLink} to="/">Home</Nav.Link>
+                        <Nav.Link as={NavLink} to="/table/add">Add table</Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
             </Container>
         </Navbar>
     )
