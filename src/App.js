@@ -9,11 +9,13 @@ import AddTable from './components/pages/AddTable/AddTable';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchTables } from './redux/tablesRedux';
+import { fetchStatus } from './redux/statusRedux.js';
 
 const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => dispatch(fetchTables()), [dispatch]);
+  useEffect(() => dispatch(fetchStatus()), [dispatch]);
 
   return (
       <Container>
