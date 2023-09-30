@@ -31,9 +31,16 @@
       "peopleAmount": 0,
       "maxPeopleAmount": 3,
       "bill": 0
+    },
+    {
+      "number": "5",
+      "status": "busy",
+      "peopleAmount": "1",
+      "maxPeopleAmount": "3",
+      "bill": "12",
+      "id": "wvQdhIA"
     }
   ],
-  
   "status": [
     "busy",
     "free",

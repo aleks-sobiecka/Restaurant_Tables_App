@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useNavigate } from "react-router-dom";
-import { addTable } from '../../../redux/tablesRedux';
+import { addTableRequest } from '../../../redux/tablesRedux';
 import TableForm from '../TableForm/TableForm';
 
 const AddTableForm = () => {
@@ -9,7 +9,7 @@ const AddTableForm = () => {
     const dispatch = useDispatch();
 
     const handleSubmit = table => {
-        dispatch(addTable(table));
+        dispatch(addTableRequest(table));
         navigate('/')
     }
 

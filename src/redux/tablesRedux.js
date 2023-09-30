@@ -19,7 +19,21 @@ export const fetchTables = () => {
     fetch('http://localhost:3131/api/tables')
       .then(res => res.json())
       .then(tables => dispatch(updateTables(tables)));
-  };
+  }
+};
+export const addTableRequest = (newTable) => {
+  return (dispatch) => {
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newTable),
+    };
+
+    fetch('http://localhost:3131/tables', options)
+      .then(() => dispatch(addTable(newTable)))
+  }
 };
 
 const tablesReducer = (statePart = [], action) => {

@@ -15,7 +15,7 @@ export const fetchStatus = () => {
     };
   };
 
-const categoriesReducer = (statePart = [], action ) => {
+const statusReducer = (statePart = [], action ) => {
     switch (action.type) {
         case UPDATE_STATUS:
             return [...action.payload];
@@ -24,4 +24,4 @@ const categoriesReducer = (statePart = [], action ) => {
     };
 };
   
-  export default categoriesReducer;
+  export default statusReducer;
