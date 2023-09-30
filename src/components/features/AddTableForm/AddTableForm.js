@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import { addTable } from '../../../redux/tablesRedux';
+import TableForm from '../TableForm/TableForm';
 
 const AddTableForm = () => {
 
@@ -13,8 +14,7 @@ const AddTableForm = () => {
     }
 
     return (
-        //<TableForm action={handleSubmit} actionText="Add post" />
-        <h1>AddTableForm</h1>
+        <TableForm action={handleSubmit} actionText="Add table" />
       )
 };
 
