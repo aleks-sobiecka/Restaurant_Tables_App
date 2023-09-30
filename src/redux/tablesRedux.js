@@ -38,7 +38,6 @@ export const addTableRequest = (newTable) => {
   }
 };
 export const removeTableRequest = (table) => {
-  console.log(table);
   return (dispatch) => {
     const options = {
       method: 'DELETE',
@@ -52,6 +51,20 @@ export const removeTableRequest = (table) => {
     .then(() => dispatch(removeTable(table)))
   }
 };
+export const editTableRequest = (number, status, peopleAmount, maxPeopleAmount, bill, tableId) => {
+  return (dispatch) => {
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(number, status, peopleAmount, maxPeopleAmount, bill, tableId),
+    };
+
+    fetch('http://localhost:3131/tables/' + tableId, options)
+    .then(() => dispatch(editTable(number, status, peopleAmount, maxPeopleAmount, bill, tableId)))
+  }
+}
 
 const tablesReducer = (statePart = [], action) => {
   switch (action.type) {
