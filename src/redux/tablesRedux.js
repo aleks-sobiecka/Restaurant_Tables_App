@@ -54,15 +54,15 @@ export const removeTableRequest = (table) => {
 export const editTableRequest = (number, status, peopleAmount, maxPeopleAmount, bill, tableId) => {
   return (dispatch) => {
     const options = {
-      method: 'POST',
+      method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(number, status, peopleAmount, maxPeopleAmount, bill, tableId),
+      body: JSON.stringify(number, status, peopleAmount, maxPeopleAmount, bill),
     };
 
     fetch('http://localhost:3131/tables/' + tableId, options)
-    .then(() => dispatch(editTable(number, status, peopleAmount, maxPeopleAmount, bill, tableId)))
+    .then(() => dispatch(editTable(status, peopleAmount, maxPeopleAmount, bill)))
   }
 }
 
@@ -71,7 +71,7 @@ const tablesReducer = (statePart = [], action) => {
     case UPDATE_TABLES:
       return [...action.payload];
     case ADD_TABLE:
-      return [...statePart, {...action.payload, id: shortid() }]
+      return [...statePart, {id: shortid(), ...action.payload}]
     case REMOVE_TABLE:
       return [...statePart.filter(table => table.id !== action.payload)];
     case EDIT_TABLE:
