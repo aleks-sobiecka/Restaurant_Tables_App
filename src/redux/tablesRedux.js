@@ -58,11 +58,11 @@ export const editTableRequest = (number, status, peopleAmount, maxPeopleAmount, 
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(number, status, peopleAmount, maxPeopleAmount, bill),
+      body: JSON.stringify({number, status, peopleAmount, maxPeopleAmount, bill}),
     };
 
     fetch('http://localhost:3131/tables/' + tableId, options)
-    .then(() => dispatch(editTable(status, peopleAmount, maxPeopleAmount, bill)))
+    .then(() => dispatch(editTable({status, peopleAmount, maxPeopleAmount, bill})))
   }
 }
 

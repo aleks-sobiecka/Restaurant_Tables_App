@@ -4,6 +4,7 @@ import { Stack, Card, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { removeTableRequest } from "../../../redux/tablesRedux";
+import Spinner from 'react-bootstrap/Spinner';
 
 const AllTables = () => {
 
@@ -17,7 +18,12 @@ const AllTables = () => {
     }
 
     return ( 
-        <section>{tables.map(table => (
+        <section>
+            {tables.length < 1 && 
+                <Spinner animation="border" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </Spinner>}
+            {tables.map(table => (
             <div key={table.id} action={table.status}>
                 <Stack direction="horizontal" gap={3}>
                     <Card border="light">
