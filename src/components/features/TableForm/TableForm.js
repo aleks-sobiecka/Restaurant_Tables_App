@@ -3,8 +3,9 @@ import { getAllStatus } from "../../../redux/statusRedux";
 import { getAllTables } from "../../../redux/tablesRedux";
 import { useState } from "react";
 import { Form, Stack, Button } from "react-bootstrap";
+import PropTypes from 'prop-types';
 
-const TableForm = ({ action, actionText, ...props }) => {
+const TableForm = ({ action, actionText }) => {
 
     const statusList = useSelector(getAllStatus);
     const tables = useSelector(getAllTables);
@@ -96,4 +97,10 @@ const TableForm = ({ action, actionText, ...props }) => {
         </Form>
     )
 }
+
+TableForm.propTypes = {
+    actionText: PropTypes.string.isRequired,
+    action: PropTypes.func.isRequired,
+} 
+
 export default TableForm;

@@ -6,7 +6,6 @@ import { getAllTables } from "../../../redux/tablesRedux";
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { editTableRequest } from '../../../redux/tablesRedux';
-import { Navigate } from 'react-router-dom';
 import { useState } from 'react';
 import { Form, Stack, Button } from "react-bootstrap";
 import { useEffect } from "react";
