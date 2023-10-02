@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { getTableById } from "../../../redux/tablesRedux";
 import { getAllStatus } from "../../../redux/statusRedux";
+import { getAllTables } from "../../../redux/tablesRedux";
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { editTableRequest } from '../../../redux/tablesRedux';
@@ -14,6 +15,7 @@ const EditTableForm = () => {
 
     const { tableId } = useParams();
     const tableData = useSelector(state => getTableById(state, tableId));
+    const tables = useSelector(getAllTables);
     const statusList = useSelector(getAllStatus);
 
     const navigate = useNavigate();
@@ -26,6 +28,15 @@ const EditTableForm = () => {
     const [bill, setBill] = useState('');
     const [showBill, setShowBill] = useState(false);
 
+    useEffect(() => {
+        if (tables.length > 0) {
+            const availableTables = tables.some(table => table.id === tableId)
+            if (!availableTables) {
+                navigate('/')
+            }
+        }
+    }, [tables, tableId, navigate]);
+    
     useEffect(() => {
         if (tableData) {
             setNumber(tableData.number);
@@ -69,7 +80,6 @@ const EditTableForm = () => {
         navigate('/')
     }
     
-    if (!tableData) return <Navigate to="/" />
     return (
         <section>
         <h1>Table {number}</h1>

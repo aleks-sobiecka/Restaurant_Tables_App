@@ -31,14 +31,6 @@
       "peopleAmount": 0,
       "maxPeopleAmount": 3,
       "bill": 0
-    },
-    {
-      "number": "5",
-      "status": "Cleaning",
-      "peopleAmount": 0,
-      "maxPeopleAmount": "8",
-      "bill": 0,
-      "id": "fqFdJSJ"
     }
   ],
   "status": [
