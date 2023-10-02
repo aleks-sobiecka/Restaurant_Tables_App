@@ -63,8 +63,8 @@ const EditTableForm = () => {
     }
 
     const handleSubmit = (e) => {
-        e.preventDefult();
-        dispatch(editTableRequest({ number, status, peopleAmount, maxPeopleAmount, bill, tableId }));
+        e.preventDefault();
+        dispatch(editTableRequest(number, status, peopleAmount, maxPeopleAmount, bill, tableId));
         console.log('number: ', number, 'status: ', status, 'peopleAmount: ', peopleAmount, 'maxPeopleAmount: ', maxPeopleAmount, 'bill: ', bill, 'tableId: ', tableId);
         navigate('/')
     }
