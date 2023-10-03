@@ -1,4 +1,5 @@
 import shortid from 'shortid';
+import { API_URL } from '../config';
 
 //selectors
 export const getAllTables = state => state.tables;
@@ -18,7 +19,7 @@ export const removeTable = payload => ({ type: REMOVE_TABLE, payload });
 export const editTable = payload => ({ type: EDIT_TABLE, payload });
 export const fetchTables = () => {
   return (dispatch) => {
-    fetch('http://localhost:3131/api/tables')
+    fetch(API_URL + '/tables')
       .then(res => res.json())
       .then(tables => dispatch(updateTables(tables)));
   }
@@ -33,7 +34,7 @@ export const addTableRequest = (newTable) => {
       body: JSON.stringify(newTable),
     };
 
-    fetch('http://localhost:3131/tables', options)
+    fetch((API_URL + '/tables'), options)
       .then(() => dispatch(addTable(newTable)))
   }
 };
@@ -47,7 +48,7 @@ export const removeTableRequest = (table) => {
       body: JSON.stringify({ table }),
     };
 
-    fetch('http://localhost:3131/tables/' + table, options)
+    fetch((API_URL + '/tables/' + table), options)
     .then(() => dispatch(removeTable(table)))
   }
 };
@@ -61,7 +62,7 @@ export const editTableRequest = (number, status, peopleAmount, maxPeopleAmount, 
       body: JSON.stringify({number, status, peopleAmount, maxPeopleAmount, bill}),
     };
 
-    fetch('http://localhost:3131/tables/' + tableId, options)
+    fetch((API_URL + '/tables/' + tableId), options)
     .then(() => dispatch(editTable({status, peopleAmount, maxPeopleAmount, bill})))
   }
 }
