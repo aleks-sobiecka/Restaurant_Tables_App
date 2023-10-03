@@ -31,14 +31,6 @@
       "peopleAmount": 0,
       "maxPeopleAmount": "3",
       "bill": 0
-    },
-    {
-      "number": "6",
-      "status": "Reserved",
-      "peopleAmount": 0,
-      "maxPeopleAmount": "3",
-      "bill": 0,
-      "id": "Br_wHkT"
     }
   ],
   "status": [
